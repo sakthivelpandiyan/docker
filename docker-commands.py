@@ -62,7 +62,13 @@ docker cp <<Local Files name> <<container_id/PATH/Filename>>
 #Copy a File from docker container to local contrainer 
 docker cp <<container_id/PATH/Filename>> <<Local Files name>
 
+#Create Network on Docker Container
+docker network create --subnet=<<subnet>>/<<bit>> <<Network name>>
+    //docker network create --subnet=192.168.10.10/24 docnet
 
+#Create a container with specified network, hostname and ipaddress
+docker run -d --hostname <<hostname>> --net <<network name>> --ip <<ipaddress>> <<imageid or image name>>
+    // docker run -d -p 4444:22 -p 9010:7001 --hostname orahost1 --net docnet --ip 192.168.10.10 oracle/weblogic:12.2.1.3-generic
 
 
 
