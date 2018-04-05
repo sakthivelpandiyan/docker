@@ -386,7 +386,32 @@ Connection closed by foreign host.
 [trainer@localhost ~]$
 
 
+------------------------------------------------------------------------------------------------------------------------------------------
+[root@localhost 12.2.1.3]# docker network create --subnet=192.168.10.10/24 docnet
+901b0e455db2c7f5e0f824d07d8414bd9fd681d7bac34d3194dfbd4bcac55e04
+[root@localhost 12.2.1.3]# docker run -d -p 4444:22 -p 9010:7001 --hostname orahost1 --net docnet --ip 192.168.10.10 oracle/weblogic:12.2.1.3-generic
+5134e60d9b5c1c6ef87b981de331eecd7ab9758a5b11cecc7f01fa8b1098b288
+[root@localhost 12.2.1.3]# docker exec -it 5134 bash
+[root@orahost1 oracle]# hostname
+orahost1
+[root@orahost1 oracle]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 02:42:C0:A8:0A:0A
+          inet addr:192.168.10.10  Bcast:192.168.10.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:24 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:2726 (2.6 KiB)  TX bytes:0 (0.0 b)
 
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+[root@orahost1 oracle]#
+------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
