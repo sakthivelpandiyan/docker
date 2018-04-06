@@ -71,5 +71,7 @@ docker run -d --hostname <<hostname>> --net <<network name>> --ip <<ipaddress>> 
     // docker run -d -p 4444:22 -p 9010:7001 --hostname orahost1 --net docnet --ip 192.168.10.10 oracle/weblogic:12.2.1.3-generic
 
 
+#Monitoring the docker using curl
 
+curl --unix-socket /var/run/docker.sock http:/containers/5134e60d9b5c/stats
 
