@@ -73,5 +73,5 @@ docker run -d --hostname <<hostname>> --net <<network name>> --ip <<ipaddress>> 
 
 #Monitoring the docker using curl
 
-curl --unix-socket /var/run/docker.sock http:/containers/5134e60d9b5c/stats
+curl --unix-socket /var/run/docker.sock http:/containers/<<container-id>>/stats
 
